@@ -135,7 +135,7 @@
                             </div>
         )
 
-        const EscondeBox = ({children})=>(
+        const MenuMobile = ({children})=>(
             <div className="lg:hidden">
             <div className="z-20 fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
                 {children}
@@ -169,7 +169,7 @@
                         <Sanduiche/>
                     </BarraDeCima>
                     
-                    <EscondeBox>
+                    <MenuMobile>
                         <FazAlgoNoBox>
                                 <div className="pt-3 pb-2">
                                     <div className="flex items-center justify-between px-4">
@@ -244,7 +244,7 @@
                                     </div>
                                 </div>
                         </FazAlgoNoBox>
-                    </EscondeBox>
+                    </MenuMobile>
                 </Cabecalho>        
         )
 

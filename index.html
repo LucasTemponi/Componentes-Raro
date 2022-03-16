@@ -77,11 +77,15 @@
             </div>
         )
 
-        const Botoes = ({botoes})=>(
+        const Botao = ({children})=>(
+            <a href="#" className="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10" aria-current="page"> {children}</a>
+        )
+
+        const LinhaDeBotoes = ({botoes})=>(
             <div className="hidden lg:block lg:col-span-2">
                 <nav className="flex space-x-4">
                     {botoes.map((botao)=>{
-                        return <a href="#" className="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10" aria-current="page"> {botao} </a>
+                        return <Botao>{botao}</Botao>
                     })}
                 </nav>
             </div>
@@ -136,7 +140,7 @@
 ">{"Open user menu"}</IconeComFoto>
                             </JogaSininhoProLado>     
                                 <BarraDeBaixo>
-                                    <Botoes botoes = {["Home","Profile","Resources","Company Directory","Openings"]}></Botoes> 
+                                    <LinhaDeBotoes botoes = {["Home","Profile","Resources","Company Directory","Openings"]}></LinhaDeBotoes> 
                                     <BarraDeBusca></BarraDeBusca>
                                 </BarraDeBaixo>
 

@@ -266,22 +266,22 @@
 
         const News = ({news})=>(
             <section aria-labelledby="announcements-title">
-                                    <div className="rounded-lg bg-white overflow-hidden shadow">
-                                        <div className="p-6">
-                                            <h2 className="text-base font-medium text-gray-900" id="announcements-title">
-                                                Announcements</h2>
-                                            <div className="flow-root mt-6">
-                                                <ul role="list" className="-my-5 divide-y divide-gray-200">
-                                                    {news.map((item)=>{
-                                                        return <NewsArticle news={item}/>
-                                                    })}
+                <div className="rounded-lg bg-white overflow-hidden shadow">
+                    <div className="p-6">
+                        <h2 className="text-base font-medium text-gray-900" id="announcements-title">
+                            Announcements</h2>
+                        <div className="flow-root mt-6">
+                            <ul role="list" className="-my-5 divide-y divide-gray-200">
+                                {news.map((item)=>{
+                                    return <NewsArticle news={item}/>
+                                })}
 
-                                                </ul>
-                                            </div>
-                                            <ViewAllButton>View all</ViewAllButton>
-                                        </div>
-                                    </div>
-                                </section>
+                            </ul>
+                        </div>
+                        <ViewAllButton>View all</ViewAllButton>
+                    </div>
+                </div>
+            </section>
 
         )
 
@@ -377,6 +377,30 @@
             </footer>  
         )
 
+        const StatsBar=({stats})=>(
+            <div
+                className="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+                {stats.map((stat,index)=>{
+                    return <Status>{stat}</Status>
+                })}
+            </div>
+        )
+
+        const stats = [
+            {text:"Vacation days left", data:12},
+            {text:"Sick days left", data:4},
+            {text:"Personal days left", data:2},
+
+        ]
+
+        const Status=({children})=>(
+            <div className="px-6 py-5 text-sm font-medium text-center">
+                <span className="text-gray-900">{children.data}</span>
+                <span className="text-gray-600">{children.text}</span>
+            </div>
+        )
+
+
         const rootElement = document.getElementById('root')
 
         const element = (
@@ -391,8 +415,8 @@
                                 </IconeComFoto>
                             </JogaSininhoProLado>     
                                 <BarraDeBaixo>
-                                    <LinhaDeBotoes botoes = {["Home","Profile","Resources","Company Directory","Openings"]}></LinhaDeBotoes> 
-                                    <BarraDeBusca></BarraDeBusca>
+                                    <LinhaDeBotoes botoes = {["Home","Profile","Resources","Company Directory","Openings"]}/> 
+                                    <BarraDeBusca/>
                                 </BarraDeBaixo>
                         <Sanduiche/>
                     </BarraDeCima>
@@ -500,23 +524,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div
-                                            className="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-                                            <div className="px-6 py-5 text-sm font-medium text-center">
-                                                <span className="text-gray-900">12</span>
-                                                <span className="text-gray-600">Vacation days left</span>
-                                            </div>
-
-                                            <div className="px-6 py-5 text-sm font-medium text-center">
-                                                <span className="text-gray-900">4</span>
-                                                <span className="text-gray-600">Sick days left</span>
-                                            </div>
-
-                                            <div className="px-6 py-5 text-sm font-medium text-center">
-                                                <span className="text-gray-900">2</span>
-                                                <span className="text-gray-600">Personal days left</span>
-                                            </div>
-                                        </div>
+                                        <StatsBar stats={stats}/>
                                 </Perfil>
                                 <QuickLinks links={linksInfo}/>                                       
                             </div>

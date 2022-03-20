@@ -10,13 +10,75 @@
 
     <script type="text/babel">
 
-        const Cabecalho = ({children})=>(
+        const user = {
+            name:"Chelsea Hagon",
+            position:"Human Resources Manager",
+            picture:"https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            stats: [
+            {text:"Vacation days left", data:12},
+            {text:"Sick days left", data:4},
+            {text:"Personal days left", data:2},], 
+        }
+
+        const newEmployees=[
+            {name:"Leonard Krasner",tag:"@leonardkrasner", photo:"https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
+            {name:"Floyd Miles",tag:"@floydmiles", photo:"https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
+            {name:"Emily Selman",tag:"@emilyselman", photo:"https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
+            {name:"Kristin Watson",tag:"@kristinwatson", photo:"https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
+        ]
+
+        const news=[
+            {title:"Office closed on July 2nd" ,
+                text:"Cum qui rem deleniti. Suscipit in dolor veritatis sequi aut. Vero ut earum quis deleniti. Ut a sunt eum cum ut repudiandae possimus. Nihil ex tempora neque cum consectetur dolores.",
+            },
+            {title:"New password policy" ,
+                text:"Alias inventore ut autem optio voluptas et repellendus. Facere totam quaerat quam quo laudantium cumque eaque excepturi vel. Accusamus maxime ipsam reprehenderit rerum id repellendus rerum. Culpa cum vel natus. Est sit autem mollitia.",
+            },
+            {title:"Office closed on July 2nd" ,
+                text:"Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae. Alias consectetur voluptatibus. Accusamus a ab dicta et. Consequatur quis dignissimos voluptatem nisi.",
+            }, 
+        ]
+
+        const linksInfo = [
+            {subject: "Request time off",
+                icon:("M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"),
+                iconColor: ("bg-teal-50 text-teal-700"),
+                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
+            },
+            {subject: "Benefits",
+                icon:"M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+                iconColor: "bg-purple-50 text-purple-700",
+                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
+             },
+            {subject: "Schedule a one-on-one",
+                icon:"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+                iconColor: "bg-sky-50 text-sky-700",
+                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
+             },
+            {subject: "Payroll",
+                icon:"M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z",
+                iconColor: "bg-yellow-50 text-yellow-700", 
+                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
+             },
+            {subject: "Submit an expense",
+                icon:"M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z",
+                iconColor: "bg-rose-50 text-rose-700",
+                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
+             },
+            {subject: "Training",
+                icon:"M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
+                iconColor: "bg-indigo-50 text-indigo-700",
+                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
+            },
+        ]
+
+        const Header = ({children})=>(
                 <header className="pb-24 bg-gradient-to-r from-sky-800 to-cyan-600">
                     {children}
                 </header>            
         )
 
-        const BarraDeCima = ({children}) =>(
+        const Navbar = ({children}) =>(
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative flex flex-wrap items-center justify-center lg:justify-between">
                     {children}
@@ -24,50 +86,64 @@
             </div>
         )
 
-        const Icone = ({children}) =>(
+        const Icon = ({children}) =>(
             <div className="absolute left-0 py-5 flex-shrink-0 lg:static">
-                                <a href="#">
-                                    <span className="sr-only">{children}</span>
-                                    <svg className="h-8 w-auto" fill="none" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="#A5F3FC"
-                                            d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z" />
-                                    </svg>
-                                </a>
-                            </div>
-        )
-        const JogaSininhoProLado = ({children})=>(
-            <div className="hidden lg:ml-4 lg:flex lg:items-center lg:py-5 lg:pr-0.5">
-                {children}
-            </div>
-        )
-        const Sininho = ({children}) =>(
-            <button type="button"
-                className="flex-shrink-0 p-1 text-cyan-200 rounded-full hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white">
-                    <span className="sr-only">View notifications</span>
-                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                <a href="#">
+                    <span className="sr-only">{children}</span>
+                    <svg className="h-8 w-auto" fill="none" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#A5F3FC"
+                            d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z" />
                     </svg>
-            </button>
-        )
-
-        const IconeComFoto = ({children,caminhoImagem})=>(
-            <div className="ml-4 relative flex-shrink-0">
-                <div>
-                    <button type="button"
-                            className="bg-white rounded-full flex text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100"
-                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                            <span className="sr-only">{children}</span>
-                            <img className="h-8 w-8 rounded-full"
-                                src={caminhoImagem}
-                                alt={children} />
-                    </button>
-                </div>
+                </a>
             </div>
         )
 
-        const BarraDeBaixo = ({children})=>(
+        const Notifications = ({user})=>(
+            <div className="hidden lg:ml-4 lg:flex lg:items-center lg:py-5 lg:pr-0.5">
+            <button
+              type="button"
+              className="flex-shrink-0 p-1 text-cyan-200 rounded-full hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
+            >
+              <span className="sr-only">View notifications</span>
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+            </button>
+
+            <div className="ml-4 relative flex-shrink-0">
+              <div>
+                <button
+                  type="button"
+                  className="bg-white rounded-full flex text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100"
+                  id="user-menu-button"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  <span className="sr-only">Open user menu</span>
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src={user.picture}
+                    alt={user.name}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        )
+
+        const LowerBar = ({children})=>(
             <div className="w-full py-5 lg:border-t lg:border-white lg:border-opacity-20">
                 <div className="lg:grid lg:grid-cols-3 lg:gap-8 lg:items-center">
                     {children}
@@ -75,21 +151,24 @@
             </div>
         )
 
-        const Botao = ({children})=>(
-            <a href="#" className="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10" aria-current="page"> {children}</a>
+        const NavButton = ({children})=>(
+            <a href="#" className="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10" aria-current="page">
+                 {children}
+            </a>
         )
 
-        const LinhaDeBotoes = ({botoes})=>(
+        const NavButtonContainer = ({botoes})=>(
             <div className="hidden lg:block lg:col-span-2">
                 <nav className="flex space-x-4">
-                    {botoes.map((botao,index)=>{
-                        return <Botao key={index}>{botao}</Botao>
-                    })}
+                    {botoes.map((buttonName,index)=>{
+                        return <NavButton key={index}>{buttonName}</NavButton>
+                    })
+                    }
                 </nav>
             </div>
         )
 
-        const BarraDeBusca = ()=>(
+        const Searchbar = ()=>(
             <div className="px-12 lg:px-0">
                 <div className="max-w-xs mx-auto w-full lg:max-w-md">
                     <label htmlFor="search" className="sr-only">Search</label>
@@ -111,63 +190,73 @@
             </div>
         )
 
-        const Sanduiche = ()=>(
+        const Sandwich = ()=>(
             <div className="absolute right-0 flex-shrink-0 lg:hidden">
-                                <button type="button"
-                                    className="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-cyan-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
-                                    aria-expanded="false">
-                                    <span className="sr-only">Open main menu</span>
+                <button type="button"
+                    className="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-cyan-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
+                    aria-expanded="false">
+                    <span className="sr-only">Open main menu</span>
 
-                                    <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                            d="M4 6h16M4 12h16M4 18h16" />
-                                    </svg>
+                    <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
 
-                                    <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                            d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-        )
-
-        const MenuMobile = ({children})=>(
-            <div className="lg:hidden">
-            <div className="z-20 fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
-                {children}
-            </div>
-        )
-
-        const FazAlgoNoBox = ({children}) => (
-            <div className="z-30 absolute top-0 inset-x-0 max-w-3xl mx-auto w-full p-2 transition transform origin-top">
-                <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y divide-gray-200">
-                    {children}
-                </div>
+                    <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
         )
 
         const MainComponent = ({children})=>(
             <main className="-mt-24 pb-8">
-                    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                        <h1 className="sr-only">Profile</h1>
-                        <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
-                            {children}
-                        </div>
+                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <h1 className="sr-only">Profile</h1>
+                    <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
+                        {children}
                     </div>
-            </main>
-            
+                </div>
+            </main>            
         )
 
-        const Perfil = ({children})=>(
+        const Profile = ({children})=>(
             <section aria-labelledby="profile-overview-title">
                 <div className="rounded-lg bg-white overflow-hidden shadow">
                     <h2 className="sr-only" id="profile-overview-title">Profile Overview</h2>
                     {children}
                 </div>
             </section>
+        )
 
+        const ProfileInfo = ({user})=>(
+            <>
+                <div className="bg-white p-6">
+                    <div className="sm:flex sm:items-center sm:justify-between">
+                        <div className="sm:flex sm:space-x-5">
+                            <div className="flex-shrink-0">
+                                <img className="mx-auto h-20 w-20 rounded-full"
+                                    src={user.picture}
+                                    alt={user.name} />
+                            </div>
+                            <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
+                                <p className="text-sm font-medium text-gray-600">Welcome back,</p>
+                                <p className="text-xl font-bold text-gray-900 sm:text-2xl">{user.name}</p>
+                                <p className="text-sm font-medium text-gray-600">{user.position}</p>
+                            </div>
+                        </div>
+                        <div className="mt-5 flex justify-center sm:mt-0">
+                            <a href="#"
+                                className="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                View profile </a>
+                        </div>
+                    </div>
+                </div>
+                <StatsBar stats={user.stats}/>
+            </>            
         )
 
         const InfoCards = ({subject,children,index})=>(
@@ -204,53 +293,14 @@
             </div>
         )
 
-        const linksInfo = [
-            {subject: "Request time off",
-                icon:("M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"),
-                iconColor: ("bg-teal-50 text-teal-700"),
-                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
-                roundedCorner:""
-            },
-            {subject: "Benefits",
-                icon:"M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
-                iconColor: "bg-purple-50 text-purple-700",
-                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
-             },
-            {subject: "Schedule a one-on-one",
-                icon:"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
-                iconColor: "bg-sky-50 text-sky-700",
-                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
-             },
-            {subject: "Payroll",
-                icon:"M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z",
-                iconColor: "bg-yellow-50 text-yellow-700", 
-                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
-             },
-            {subject: "Submit an expense",
-                icon:"M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z",
-                iconColor: "bg-rose-50 text-rose-700",
-                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
-             },
-            {subject: "Training",
-                icon:"M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
-                iconColor: "bg-indigo-50 text-indigo-700",
-                text:"Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae",
-            },
-        ]
-
         const QuickLinks = ({links})=>(
             <section aria-labelledby="quick-links-title">
                 <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
                     <h2 className="sr-only" id="quick-links-title">Quick links</h2>
                     {links.map((link,index)=>{
-                        switch(index%links.length) {
-                            case 0: link.roundedCorners = "tl"
-                            case 1: link.roundedCorners = "tr"
-                            case (links.length-2):link.roundedCorners = "bl"
-                            case (links.length-1):link.roundedCorners = "br"
-                        }
                         return <InfoCards subject={link} key={index} index={index}>{link.text}</InfoCards>
-                    })}
+                    })
+                    }
                 </div>
             </section>
         )
@@ -261,7 +311,6 @@
                     className="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                     {children} </a>
             </div>
-
         )
 
         const News = ({news})=>(
@@ -272,30 +321,17 @@
                             Announcements</h2>
                         <div className="flow-root mt-6">
                             <ul role="list" className="-my-5 divide-y divide-gray-200">
-                                {news.map((item)=>{
-                                    return <NewsArticle news={item}/>
-                                })}
-
+                                {news.map((item,index)=>{
+                                    return <NewsArticle key={index} news={item}/>
+                                })
+                                }
                             </ul>
                         </div>
                         <ViewAllButton>View all</ViewAllButton>
                     </div>
                 </div>
             </section>
-
         )
-
-        const news=[
-            {title:"Office closed on July 2nd" ,
-                text:"Cum qui rem deleniti. Suscipit in dolor veritatis sequi aut. Vero ut earum quis deleniti. Ut a sunt eum cum ut repudiandae possimus. Nihil ex tempora neque cum consectetur dolores.",
-            },
-            {title:"New password policy" ,
-                text:"Alias inventore ut autem optio voluptas et repellendus. Facere totam quaerat quam quo laudantium cumque eaque excepturi vel. Accusamus maxime ipsam reprehenderit rerum id repellendus rerum. Culpa cum vel natus. Est sit autem mollitia.",
-            },
-            {title:"Office closed on July 2nd" ,
-                text:"Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae. Alias consectetur voluptatibus. Accusamus a ab dicta et. Consequatur quis dignissimos voluptatem nisi.",
-            }, 
-        ]
 
         const NewsArticle = ({news})=>(
             <li className="py-5">
@@ -306,8 +342,7 @@
                             {news.title}
                         </a>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-600 line-clamp-2">{news.text}
-                    </p>
+                    <p className="mt-1 text-sm text-gray-600 line-clamp-2">{news.text}</p>
                 </div>
             </li>
         )
@@ -333,9 +368,9 @@
 
         const ViewButton=()=>(
             <div>
-                <a href="#"
-                    className="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
-                    View </a>
+                <a href="#" className="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
+                    View
+                </a>
             </div>
         )
 
@@ -357,13 +392,6 @@
             </li>
         )    
 
-        const employees=[
-            {name:"Leonard Krasner",tag:"@leonardkrasner", photo:"https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
-            {name:"Floyd Miles",tag:"@floydmiles", photo:"https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
-            {name:"Emily Selman",tag:"@emilyselman", photo:"https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
-            {name:"Kristin Watson",tag:"@kristinwatson", photo:"https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"},
-        ]
-
         const Footer = ({children})=>(
             <footer>
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
@@ -381,17 +409,10 @@
             <div
                 className="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
                 {stats.map((stat,index)=>{
-                    return <Status>{stat}</Status>
+                    return <Status key={index}>{stat}</Status>
                 })}
             </div>
         )
-
-        const stats = [
-            {text:"Vacation days left", data:12},
-            {text:"Sick days left", data:4},
-            {text:"Personal days left", data:2},
-
-        ]
 
         const Status=({children})=>(
             <div className="px-6 py-5 text-sm font-medium text-center">
@@ -400,143 +421,37 @@
             </div>
         )
 
-
         const rootElement = document.getElementById('root')
 
         const element = (
+            <React.StrictMode>
             <div className="min-h-full">
-                <Cabecalho>
-                    <BarraDeCima>
-                        <Icone>Workflow</Icone>
-                            <JogaSininhoProLado>                 
-                                <Sininho/>
-                                <IconeComFoto caminhoImagem="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
-                                    {"Open user menu"}
-                                </IconeComFoto>
-                            </JogaSininhoProLado>     
-                                <BarraDeBaixo>
-                                    <LinhaDeBotoes botoes = {["Home","Profile","Resources","Company Directory","Openings"]}/> 
-                                    <BarraDeBusca/>
-                                </BarraDeBaixo>
-                        <Sanduiche/>
-                    </BarraDeCima>
-                    
-                    <MenuMobile>
-                        <FazAlgoNoBox>
-                                <div className="pt-3 pb-2">
-                                    <div className="flex items-center justify-between px-4">
-                                        <div>
-                                            <img className="h-8 w-auto"
-                                                src="https://tailwindui.com/img/logos/workflow-mark-cyan-600.svg"
-                                                alt="Workflow" />
-                                        </div>
-                                        <div className="-mr-2">
-                                            <button type="button"
-                                                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500">
-                                                <span className="sr-only">Close menu</span>
-                                                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                                        d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="mt-3 px-2 space-y-1">
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Home</a>
-
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Profile</a>
-
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Resources</a>
-
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Company
-                                            Directory</a>
-
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Openings</a>
-                                    </div>
-                                </div>
-                                <div className="pt-4 pb-2">
-                                    <div className="flex items-center px-5">
-                                        <div className="flex-shrink-0">
-                                            <img className="h-10 w-10 rounded-full"
-                                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt="" />
-                                        </div>
-                                        <div className="ml-3 min-w-0 flex-1">
-                                            <div className="text-base font-medium text-gray-800 truncate">Chelsea Hagon</div>
-                                            <div className="text-sm font-medium text-gray-500 truncate">
-                                                chelsea.hagon@example.com</div>
-                                        </div>
-                                        <button type="button"
-                                            className="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
-                                            <span className="sr-only">View notifications</span>
-                                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div className="mt-3 px-2 space-y-1">
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Your
-                                            Profile</a>
-
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Settings</a>
-
-                                        <a href="#"
-                                            className="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Sign
-                                            out</a>
-                                    </div>
-                                </div>
-                        </FazAlgoNoBox>
-                    </MenuMobile>
-                </Cabecalho>
-                    <MainComponent>
-                            <div className="grid grid-cols-1 gap-4 lg:col-span-2">
-                                <Perfil>
-                                        <div className="bg-white p-6">
-                                            <div className="sm:flex sm:items-center sm:justify-between">
-                                                <div className="sm:flex sm:space-x-5">
-                                                    <div className="flex-shrink-0">
-                                                        <img className="mx-auto h-20 w-20 rounded-full"
-                                                            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                            alt="" />
-                                                    </div>
-                                                    <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
-                                                        <p className="text-sm font-medium text-gray-600">Welcome back,</p>
-                                                        <p className="text-xl font-bold text-gray-900 sm:text-2xl">Chelsea Hagon
-                                                        </p>
-                                                        <p className="text-sm font-medium text-gray-600">Human Resources Manager
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className="mt-5 flex justify-center sm:mt-0">
-                                                    <a href="#"
-                                                        className="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                                                        View profile </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <StatsBar stats={stats}/>
-                                </Perfil>
-                                <QuickLinks links={linksInfo}/>                                       
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-4">
-                                <News news={news}/>
-                                <RecentHires employees={employees}/>                               
-                            </div>
-                    </MainComponent>
-                    <Footer/>
-            </div>   
-
+                <Header>
+                    <Navbar>
+                        <Icon>Workflow</Icon>
+                        <Notifications user={user}/>
+                        <LowerBar>
+                            <NavButtonContainer botoes = {["Home","Profile","Resources","Company Directory","Openings"]}/> 
+                            <Searchbar/>
+                        </LowerBar>
+                        <Sandwich/>
+                    </Navbar>
+                </Header>
+                <MainComponent>
+                        <div className="grid grid-cols-1 gap-4 lg:col-span-2">
+                            <Profile>
+                                <ProfileInfo user={user}/>                                
+                            </Profile>
+                            <QuickLinks links={linksInfo}/>                                       
+                        </div>
+                        <div className="grid grid-cols-1 gap-4">
+                            <News news={news}/>
+                            <RecentHires employees={newEmployees}/>                               
+                        </div>
+                </MainComponent>
+                <Footer/>
+            </div>
+            </React.StrictMode>
         )
 
         ReactDOM.render(element, rootElement);
